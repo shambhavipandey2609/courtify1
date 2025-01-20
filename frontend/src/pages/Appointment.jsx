@@ -178,7 +178,10 @@ const Appointment = () => {
       </div>
 
       {/* Listing Related Lawyers */}
-      <RelatedLawyers practiceArea={lawyerInfo.practiceArea} lawyerId={lawyerId} />
+      <RelatedLawyers
+        practiceArea={lawyerInfo.practiceArea}
+        lawyerId={lawyerId}
+      />
     </div>
   ) : null;
 };
