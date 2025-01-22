@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/index.css";
+import "../styles/index.css";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";

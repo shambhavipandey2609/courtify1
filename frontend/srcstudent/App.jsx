@@ -6,7 +6,7 @@ import ResearchPapersPage from "./pages/ResearchPapersPage";
 import InternshipPage from "./pages/InternshipPage";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import "./styles/index.css";
+import "../styles/index.css";
 
 const App = () => {
   return (
