@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/index.css";
 import { useNavigate } from "react-router-dom";
+<script type="module" src="/srcstudent/main.jsx"></script>
 
 const LawStudentPage = () => {
   const navigate = useNavigate();
