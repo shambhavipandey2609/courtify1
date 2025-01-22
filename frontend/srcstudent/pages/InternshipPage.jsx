@@ -1,5 +1,5 @@
 import React from "react";
-import "./InternshipPage.css";
+import "./styles/index.css";
 
 const InternshipPage = () => {
   const internships = [
