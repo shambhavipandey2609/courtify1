@@ -1,12 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import LawStudentPage from "./pages/LawStudentPage";
 import LawStudentDashboard from "./pages/LawStudentDashboard";
 import ResearchPapersPage from "./pages/ResearchPapersPage";
 import InternshipPage from "./pages/InternshipPage";
-import "./styles/index.css";
 
 const App = () => {
   return (
@@ -17,13 +16,10 @@ const App = () => {
           <Sidebar />
           <main className="app__content">
             <Routes>
-              {/* Landing page for law students */}
-              <Route path="/" element={<LawStudentPage />} />
-              {/* Dashboard with links to Research Papers and Internships */}
-              <Route path="/student-dashboard" element={<LawStudentDashboard />} />
-              {/* Research Papers page */}
+              <Route path="/" element={<Navigate to="/student" />} />
+              <Route path="/student" element={<LawStudentPage />} />
+              <Route path="/dashboard" element={<LawStudentDashboard />} />
               <Route path="/research-papers" element={<ResearchPapersPage />} />
-              {/* Internships page */}
               <Route path="/internships" element={<InternshipPage />} />
             </Routes>
           </main>

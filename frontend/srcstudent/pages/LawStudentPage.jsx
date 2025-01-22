@@ -1,64 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import "./LawStudentPage.css";
+import { useNavigate } from "react-router-dom";
 
 const LawStudentPage = () => {
-  const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
-
-  const toggleMode = () => {
-    setIsLogin(!isLogin);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(isLogin ? "Logged in successfully!" : "Account created successfully!");
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="law-student-page">
-      <div className="law-student-page__container">
-        <h1>{isLogin ? "Law Student Login" : "Law Student Signup"}</h1>
-        <form onSubmit={handleSubmit}>
-          {!isLogin && (
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              required
-              className="input-field"
-            />
-          )}
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            required
-            className="input-field"
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            className="input-field"
-          />
-          {!isLogin && (
-            <input
-              type="text"
-              name="college"
-              placeholder="College Name"
-              required
-              className="input-field"
-            />
-          )}
-          <button type="submit" className="btn btn-primary">
-            {isLogin ? "Login" : "Sign Up"}
-          </button>
-        </form>
-        <p onClick={toggleMode} className="toggle-mode">
-          {isLogin
-            ? "Don't have an account? Sign up here."
-            : "Already have an account? Login here."}
-        </p>
+      <h1>Welcome to Courtify</h1>
+      <p>Your gateway to legal internships and research papers.</p>
+      <div className="buttons">
+        <button onClick={() => navigate("/dashboard")} className="btn btn-primary">
+          Login
+        </button>
+        <button onClick={() => navigate("/register")} className="btn btn-secondary">
+          Register
+        </button>
       </div>
     </div>
   );
