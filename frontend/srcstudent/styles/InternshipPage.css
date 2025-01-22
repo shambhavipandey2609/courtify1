@@ -1,0 +1,28 @@
+.internship-page {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .internship-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .internship-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  .internship-card button {
+    background: #1d3557;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,61 @@
+/* Auth Page Styling */
+.law-student-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #457b9d, #1d3557);
+    color: #fff;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .auth-container {
+    background-color: #fff;
+    color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .auth-container h2 {
+    margin-bottom: 20px;
+    color: #1d3557;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .auth-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #457b9d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .auth-button:hover {
+    background-color: #1d3557;
+  }
+  
+  .toggle-form {
+    margin-top: 15px;
+    color: #457b9d;
+    cursor: pointer;
+  }
+  
+  .toggle-form:hover {
+    text-decoration: underline;
+  }
+  

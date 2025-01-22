@@ -5,6 +5,8 @@
   },
   "scripts": {
     "testcloudinary": "node config/testcloudinary.js"
+  },
+  "devDependencies": {
+    "vite": "^6.0.11"
   }
 }
-
