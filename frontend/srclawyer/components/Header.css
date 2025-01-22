@@ -1,0 +1,111 @@
+/* Header.css
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #4b6584;
+    color: white;
+  }
+  
+  .nav-links a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  } */
+
+  /* .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 16px 32px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #555;
+    margin: 0 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #1d3557;
+  }
+  
+  .nav-links img {
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-links img:hover {
+    transform: scale(1.1);
+  }
+   */
+
+   .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+    color: white;
+    height: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .logo:hover {
+    color: #e5e7eb; /* Light gray */
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 500;
+    text-decoration: none;
+    color: inherit;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  
+  .nav-links img {
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-links img:hover {
+    transform: scale(1.05);
+  }
+  
+  .nav-links span {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links span:hover {
+    color: #e5e7eb; /* Light gray */
+  }
+  

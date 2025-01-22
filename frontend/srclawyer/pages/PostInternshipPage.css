@@ -1,0 +1,115 @@
+/* Flexbox layout for Sidebar and Content */
+.flex-container {
+    display: flex; /* Ensure flexbox layout is applied */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent unwanted scrolling */
+  }
+  
+  /* Sidebar Styling */
+  .sidebar {
+    width: 300px; /* Fixed width for the sidebar */
+    background-color: #1d3557; /* Navy blue */
+    color: white;
+    padding: 20px;
+    height: 100vh; /* Full height of the viewport */
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+  }
+  
+  /* Sidebar Content */
+  .sidebar h2 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    font-size: 18px;
+    margin: 15px 0;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.3s ease;
+    text-align: center;
+  }
+  
+  .sidebar ul li:hover,
+  .sidebar ul li.active-menu {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  /* Content Container Styling */
+  .content-container {
+    flex: 1; /* Take up remaining space */
+    padding: 40px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  }
+  
+  /* Page Heading */
+  .page-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1d3557;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Form Styling */
+  .form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .textarea {
+    resize: none;
+    min-height: 150px;
+  }
+  
+  .input:focus,
+  .textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+  }
+  
+  /* Submit Button */
+  .button {
+    padding: 14px;
+    font-size: 18px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
