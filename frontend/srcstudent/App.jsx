@@ -17,9 +17,13 @@ const App = () => {
           <Sidebar />
           <main className="app__content">
             <Routes>
+              {/* Landing page for law students */}
               <Route path="/" element={<LawStudentPage />} />
-              <Route path="/dashboard" element={<LawStudentDashboard />} />
+              {/* Dashboard with links to Research Papers and Internships */}
+              <Route path="/student-dashboard" element={<LawStudentDashboard />} />
+              {/* Research Papers page */}
               <Route path="/research-papers" element={<ResearchPapersPage />} />
+              {/* Internships page */}
               <Route path="/internships" element={<InternshipPage />} />
             </Routes>
           </main>
