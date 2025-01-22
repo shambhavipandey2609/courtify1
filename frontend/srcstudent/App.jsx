@@ -2,28 +2,27 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import ResearchPapers from "./pages/ResearchPapers";
-import Internships from "./pages/Internships";
-import Profile from "./pages/Profile";
-import './styles/index.css';
-
+import LawStudentPage from "./pages/LawStudentPage";
+import LawStudentDashboard from "./pages/LawStudentDashboard";
+import ResearchPapersPage from "./pages/ResearchPapersPage";
+import InternshipPage from "./pages/InternshipPage";
+import "./styles/index.css";
 
 const App = () => {
   return (
     <Router>
-      <Header />
-      <div style={{ display: "flex" }}>
-        <Sidebar activeMenu="dashboard" />
-        <div style={{ marginLeft: "250px", padding: "20px", width: "100%" }}>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/research" element={<ResearchPapers />} />
-            <Route path="/internships" element={<Internships />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
+      <div className="app">
+        <Header />
+        <div className="app__layout">
+          <Sidebar />
+          <main className="app__content">
+            <Routes>
+              <Route path="/" element={<LawStudentPage />} />
+              <Route path="/dashboard" element={<LawStudentDashboard />} />
+              <Route path="/research-papers" element={<ResearchPapersPage />} />
+              <Route path="/internships" element={<InternshipPage />} />
+            </Routes>
+          </main>
         </div>
       </div>
     </Router>

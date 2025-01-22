@@ -1,40 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import "./Sidebar.css"; // CSS for styling the sidebar
+import "./Sidebar.css";
 
-const Sidebar = ({ activeMenu }) => {
-  const navigate = useNavigate();
-
+const Sidebar = () => {
   return (
-    <div className="sidebar">
-      <h2>Student Options</h2>
-      <ul>
-        <li
-          className={activeMenu === "dashboard" ? "active-menu" : ""}
-          onClick={() => navigate("/dashboard")}
-        >
-          Dashboard
-        </li>
-        <li
-          className={activeMenu === "research" ? "active-menu" : ""}
-          onClick={() => navigate("/research")}
-        >
-          Research Papers
-        </li>
-        <li
-          className={activeMenu === "internships" ? "active-menu" : ""}
-          onClick={() => navigate("/internships")}
-        >
-          Internships
-        </li>
-        <li
-          className={activeMenu === "profile" ? "active-menu" : ""}
-          onClick={() => navigate("/profile")}
-        >
-          Profile
-        </li>
+    <aside className="sidebar">
+      <h2 className="sidebar__title">Options</h2>
+      <ul className="sidebar__menu">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/research-papers">Research Papers</a></li>
+        <li><a href="/internships">Internships</a></li>
       </ul>
-    </div>
+    </aside>
   );
 };
 

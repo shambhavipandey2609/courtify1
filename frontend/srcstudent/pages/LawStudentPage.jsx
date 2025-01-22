@@ -3,68 +3,61 @@ import "./LawStudentPage.css";
 
 const LawStudentPage = () => {
   const [isLogin, setIsLogin] = useState(true); // Toggle between login and signup
-  const [formData, setFormData] = useState({ email: "", password: "", name: "" });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const toggleMode = () => {
+    setIsLogin(!isLogin);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isLogin) {
-      console.log("Logging in with:", formData);
-      // Send login data to the backend API
-    } else {
-      console.log("Signing up with:", formData);
-      // Send signup data to the backend API
-    }
-  };
-
-  const toggleForm = () => {
-    setIsLogin(!isLogin);
-    setFormData({ email: "", password: "", name: "" });
+    alert(isLogin ? "Logged in successfully!" : "Account created successfully!");
   };
 
   return (
     <div className="law-student-page">
-      <div className="auth-container">
-        <h2>{isLogin ? "Law Student Login" : "Law Student Sign Up"}</h2>
-        <form onSubmit={handleSubmit} className="auth-form">
+      <div className="law-student-page__container">
+        <h1>{isLogin ? "Law Student Login" : "Law Student Signup"}</h1>
+        <form onSubmit={handleSubmit}>
           {!isLogin && (
             <input
               type="text"
               name="name"
               placeholder="Full Name"
-              value={formData.name}
-              onChange={handleInputChange}
               required
+              className="input-field"
             />
           )}
           <input
             type="email"
             name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleInputChange}
+            placeholder="Email Address"
             required
+            className="input-field"
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
-            value={formData.password}
-            onChange={handleInputChange}
             required
+            className="input-field"
           />
-          <button type="submit" className="auth-button">
+          {!isLogin && (
+            <input
+              type="text"
+              name="college"
+              placeholder="College Name"
+              required
+              className="input-field"
+            />
+          )}
+          <button type="submit" className="btn btn-primary">
             {isLogin ? "Login" : "Sign Up"}
           </button>
         </form>
-        <p onClick={toggleForm} className="toggle-form">
+        <p onClick={toggleMode} className="toggle-mode">
           {isLogin
-            ? "Don't have an account? Sign Up"
-            : "Already have an account? Login"}
+            ? "Don't have an account? Sign up here."
+            : "Already have an account? Login here."}
         </p>
       </div>
     </div>

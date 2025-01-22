@@ -1,21 +1,18 @@
 import React from "react";
-import "./Header.css"; // CSS for styling the header
-import { useNavigate } from "react-router-dom";
+import "./Header.css";
+import logo from "../assets/logo.png";
 
 const Header = () => {
-  const navigate = useNavigate();
-
   return (
     <header className="header">
-      <div className="logo" onClick={() => navigate("/")}>
-        <img src="/assets/logo.png" alt="Logo" />
-        <span>Law Student Portal</span>
+      <div className="header__logo">
+        <img src={logo} alt="Courtify Logo" />
+        <h1>Courtify</h1>
       </div>
-      <nav className="nav-links">
-        <a href="/">Home</a>
-        <a href="/research">Research Papers</a>
-        <a href="/internships">Internships</a>
-        <a href="/profile">Profile</a>
+      <nav className="header__nav">
+        <a href="/" className="header__link">Home</a>
+        <a href="/dashboard" className="header__link">Dashboard</a>
+        <a href="/contact" className="header__link">Contact</a>
       </nav>
     </header>
   );

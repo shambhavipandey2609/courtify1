@@ -3,21 +3,21 @@ import "./LawStudentDashboard.css";
 
 const LawStudentDashboard = () => {
   return (
-    <div className="dashboard-container">
-      <header className="dashboard-header">
-        <h1>Welcome, Law Student</h1>
-        <p>Discover research papers and apply for internships posted by lawyers.</p>
-      </header>
-      <div className="dashboard-content">
-        <div className="card research-papers">
+    <div className="law-student-dashboard">
+      <div className="card-container">
+        <div className="card">
           <h2>Research Papers</h2>
-          <p>Explore insightful legal research papers shared by experienced lawyers.</p>
-          <button>View Research Papers</button>
+          <p>Explore a wide variety of legal research papers from lawyers.</p>
+          <a href="/research-papers" className="btn btn-primary">
+            View Research Papers
+          </a>
         </div>
-        <div className="card internships">
-          <h2>Apply for Internships</h2>
-          <p>Browse and apply for internships posted by top legal professionals.</p>
-          <button>Explore Internships</button>
+        <div className="card">
+          <h2>Internships</h2>
+          <p>Apply for internships posted by experienced lawyers.</p>
+          <a href="/internships" className="btn btn-primary">
+            Apply for Internships
+          </a>
         </div>
       </div>
     </div>
