@@ -1,123 +1,138 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Courtify - Homepage</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Welcome to Courtify</h1>
-      <p>Your legal partner for all needs</p>
-    </header>
-    <main>
-      <div class="options">
-        <button class="navigate" data-target="client.html">Client</button>
-        <button class="navigate" data-target="lawyer.html">Lawyer</button>
-        <button class="navigate" data-target="lawstudent.html">
-          Law Student
-        </button>
-      </div>
-    </main>
-    <script src="script.js"></script>
-  </body>
-</html> -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Courtify - Home</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <img src="/src/assets/courtifylogo.png" alt="Courtify Logo" />
-       <h1>Courtify - One Stop Solution for All Your Legal Matters</h1> -->
-<!-- </header>
-
-    <div class="content">
-      <h1>Who are you?</h1>
-      <p>
-        Choose your role to get started with Courtify. We are here to help you
-        with all your legal needs.
-      </p>
-      <div class="roles">
-        <div class="role" onclick="navigateTo('lawyer')">
-          <img src="/src/assets/lawyer.png" alt="Lawyer" />
-          <p>Lawyer</p>
-        </div>
-        <div class="role" onclick="navigateTo('lawstudent')">
-          <img src="/src/assets/lawstudent.png" alt="Law Student" />
-          <p>Law Student</p>
-        </div>
-        <div class="role" onclick="navigateTo('client')">
-          <img src="/src/assets/client.png" alt="Client" />
-          <p>Client</p>
-        </div>
-      </div>
-    </div>
-    <footer>
-      <div>COMPANY</div>
-      <div>
-        <a href="#">Home</a> | <a href="#">About Us</a> |
-        <a href="#">Contact Us</a> |
-        <a href="#">Privacy Policy</a>
-      </div>
-      <div>GET IN TOUCH</div>
-      <div>+1-212-456-7890 | Courtify@gmail.com</div>
-    </footer>
-    <script src="script.js"></script>
-  </body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Courtify - Home</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <img src="/src/assets/courtifylogo.png" alt="Courtify Logo" />
-      <!-- <h1>Courtify - One Stop Solution for All Your Legal Matters</h1> -->
-    </header>
-
-    <div class="content">
-      <h1>Who are you?</h1>
-
-      <p>
-        Choose your role to get started with Courtify. We are here to help you
-        with all your legal needs.
-      </p>
-      <br /><br />
-      <div class="roles">
-        <div class="role" onclick="navigateTo('lawyer')">
-          <img src="/src/assets/lawyer.png" alt="Lawyer" />
-          <p>Lawyer</p>
-        </div>
-        <div class="role" onclick="navigateTo('lawstudent')">
-          <img src="/src/assets/lawstudent.png" alt="Law Student" />
-          <p>Law Student</p>
-        </div>
-        <div class="role" onclick="navigateTo('client')">
-          <img src="/src/assets/client.png" alt="Client" />
-          <p>Client</p>
-        </div>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courtify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #1b2838;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar img {
+            height: 50px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        .container {
+            margin-top: 150px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            animation: bounce 1.5s infinite;
+        }
+        .role-selection {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .role-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 150px;
+            color: black;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .role-card img {
+            width: 80px;
+            height: 100px;
+        }
+        .role-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            background: #f1c40f;
+            color: white;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: #1b2838;
+        }
+        .footer a {
+            color: #f1c40f;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+     <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const roleCards = document.querySelectorAll(".role-card");
+          roleCards.forEach(card => {
+              card.addEventListener("click", () => {
+                  let role = card.innerText.trim().toLowerCase().replace(' ', '');
+                  window.location.href = `${role}.html`;
+              });
+          });
+      });
+  </script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="/src/assets/courtifylogo.png" alt="Courtify Logo">
     </div>
-    <footer>
-      <div>COMPANY</div>
-      <div>
-        <a href="#">Home</a> | <a href="#">About Us</a> |
-        <a href="#">Contact Us</a> |
-        <a href="#">Privacy Policy</a>
-      </div>
-      <div>GET IN TOUCH</div>
-      <div>+1-212-456-7890 | Courtify@gmail.com</div>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    <div class="container">
+        <h1>Who are you?</h1>
+        <p>Choose your role to get started with Courtify. We are here to help you with all your legal needs.</p>
+        <div class="role-selection">
+            <div class="role-card">
+                <img src="/src/assets/lawyer.png" alt="Lawyer">
+                <p>Lawyer</p>
+            </div>
+            <div class="role-card">
+                <img src="/src/assets/lawstudent.png" alt="Law Student">
+                <p>Law Student</p>
+            </div>
+            <div class="role-card">
+                <img src="/src/assets/client.png" alt="Client">
+                <p>Client</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>COMPANY</p>
+        <a href="#">Home</a> | <a href="#">About Us</a> | <a href="#">Contact Us</a> | <a href="#">Privacy Policy</a>
+        <p>GET IN TOUCH</p>
+        <p>+1-212-456-7890 | Courtify@gmail.com</p>
+    </div>
+</body>
 </html>

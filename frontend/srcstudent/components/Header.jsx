@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import logo from "../assets/logo.png";
+import logo from "../assets/courtifylogo.png";
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
       </div>
       <nav className="header__nav">
         <a href="/" className="header__link">Home</a>
-        <a href="/dashboard" className="header__link">Dashboard</a>
+        {/* <a href="/dashboard" className="header__link">Dashboard</a> */}
         <a href="/contact" className="header__link">Contact</a>
       </nav>
     </header>

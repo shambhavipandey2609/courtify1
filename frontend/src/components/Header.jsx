@@ -25,16 +25,6 @@ const Header = () => {
           <img className="w-3" src={assets.arrow_icon} alt="" />
         </a>
       </div>
-
-      {/* --------- Header Right --------- */}
-      {/* <div className="md:w-1/2 relative">
-        <img
-          className="w-full md:absolute bottom-0 h-auto rounded-lg"
-          src={assets.header_img}
-          alt=""
-        />
-      </div>
-    </div> */}
       <div className="md:w-1/2 relative">
         <img
           className="w-full h-full object-cover rounded-lg"

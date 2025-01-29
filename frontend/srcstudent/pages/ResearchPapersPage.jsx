@@ -13,7 +13,7 @@ const ResearchPapersPage = () => {
       <h1>Research Papers</h1>
       <div className="papers">
         {papers.map((paper) => (
-          <div key={paper.id} className="paper-card">
+          <div key={paper.id} className="data-card">
             <h2>{paper.title}</h2>
             <p>Author: {paper.author}</p>
             <button className="btn btn-primary">Read More</button>

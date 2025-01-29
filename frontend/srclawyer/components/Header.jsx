@@ -60,6 +60,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import courtifyLogo from "../assets/courtifylogo.png";
+
 const Header = () => {
   const navigate = useNavigate();
 
@@ -70,7 +72,8 @@ const Header = () => {
         className="logo text-2xl font-extrabold cursor-pointer hover:text-gray-200 transition-all duration-300"
         onClick={() => navigate("/")}
       >
-        Courtify
+       <img className="img" src={courtifyLogo} alt="Courtify Logo" />
+        {/* Courtify */}
       </div>
 
       {/* Navigation Links */}
