@@ -1,8 +1,110 @@
-.footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem;
-    background: #2c3e50;
-    color: white;
-    
+/* Footer.css */
+
+/* Footer Container */
+.footer-container {
+  background: #f9fafb; /* Light gray background */
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 2px solid #e5e7eb; /* Light border for separation */
+}
+
+/* Footer Content */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  text-align: left;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    gap: 3rem;
   }
+}
+
+/* Footer Text */
+.footer-text {
+  color: #4b5563; /* Gray-600 */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Footer Links */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-links a {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #2563eb; /* Blue-600 */
+  text-decoration: underline;
+}
+
+/* Get in Touch */
+.get-in-touch ul {
+  list-style: none;
+  padding: 0;
+}
+
+.get-in-touch ul li {
+  margin-bottom: 0.7rem;
+}
+
+.get-in-touch a {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.get-in-touch a:hover {
+  color: #2563eb; /* Blue-600 */
+  text-decoration: underline;
+}
+
+/* Social Media */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.footer-social a {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  color: #2563eb; /* Blue */
+  border: 1px solid transparent;
+}
+
+.footer-social a:hover {
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid #2563eb;
+  text-decoration: none;
+}
+
+/* Copyright Section */
+.footer-copyright {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.85rem;
+  color: #6b7280; /* Gray-500 */
+}

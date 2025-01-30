@@ -6,7 +6,7 @@ import Dashboard from "./components/dashboard";
 import LawStudentDashboard from "./pages/LawStudentDashboard";
 import ResearchPapersPage from "./pages/ResearchPapersPage";
 import InternshipPage from "./pages/InternshipPage";
-import Login from "./pages/LoginSignup.jsx";
+import LoginSignup from "./pages/LoginSignup.jsx";
 
 const App = () => {
   return (
