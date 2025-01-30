@@ -39,7 +39,7 @@ const Dashboard = () => {
       <br />
       <hr />
       <br />
-      <div className="hero-section">
+      {/* <div className="hero-section">
         <div className="hero-content">
           <h2>Offer Your Expertise, Empower Clients</h2>
           <p>
@@ -52,7 +52,7 @@ const Dashboard = () => {
         <div className="hero-image">
           <img src={assets.header_img} alt="Lawyers" />
         </div>
-      </div>
+      </div> */}
       <div className="dashboard-content">
       <h1 className="dashboard-title">LawStudent Dashboard</h1>
       <div className="options">
