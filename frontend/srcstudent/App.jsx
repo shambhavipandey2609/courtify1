@@ -6,6 +6,7 @@ import Dashboard from "./components/dashboard";
 import LawStudentDashboard from "./pages/LawStudentDashboard";
 import ResearchPapersPage from "./pages/ResearchPapersPage";
 import InternshipPage from "./pages/InternshipPage";
+import Login from "./pages/LoginSignup.jsx";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           path="/lawstudent.html/research-papers"
           element={<ResearchPapersPage />}
         />
+        <Route path="/login" element={<LoginSignup />} />
       </Routes>
       <Footer />
     </Router>
