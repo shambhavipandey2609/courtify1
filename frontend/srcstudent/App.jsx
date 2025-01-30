@@ -9,13 +9,22 @@ import InternshipPage from "./pages/InternshipPage";
 
 const App = () => {
   return (
-   <Router>
-      <Header/>
-      <Dashboard/>
-      <Footer/>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/lawstudent.html" element={<Dashboard />} />
+        <Route
+          path="/lawstudent.html/internship"
+          element={<InternshipPage />}
+        />
+        <Route
+          path="/lawstudent.html/research-papers"
+          element={<ResearchPapersPage />}
+        />
+      </Routes>
+      <Footer />
     </Router>
   );
 };
 
 export default App;
-

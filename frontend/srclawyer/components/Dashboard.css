@@ -17,7 +17,7 @@
     background: #3c4f6b;
   } */
 
-  /* .dashboard {
+/* .dashboard {
     text-align: center;
     padding: 3rem 1rem;
     background: linear-gradient(to bottom, #e8f1f2, #ffffff);
@@ -61,19 +61,19 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     background: linear-gradient(45deg, #3c4f6b, #2c3b4d);
   } */
-  /* .dashboard {
+/* .dashboard {
     font-family: 'Inter', sans-serif;
   } */
-  
-  /* nav ul li {
+
+/* nav ul li {
     list-style: none;
   }
   
   .bg-primary {
     background-color: #1d3557; /* Adjust color to match the theme */
-  /* } */
-  
-  /* .text-primary {
+/* } */
+
+/* .text-primary {
     color: #1d3557;
   }
   
@@ -83,8 +83,8 @@
   
   nav a:hover {
     color: #457b9d; */
-  /* } */ 
-  /* ---- Global Styles ---- */
+/* } */
+/* ---- Global Styles ---- */
 /* .dashboard {
   font-family: 'Inter', sans-serif;
 } */
@@ -164,8 +164,8 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   padding: 40px;
-  background-color: #1D3557;
-  ;
+  background-color: #1d3557;
+  height: 400px;
 }
 
 .hero-content {
@@ -174,7 +174,7 @@ button:hover {
 
 .hero-content h2 {
   font-size: 32px;
-  color:white;
+  color: white;
 }
 
 .hero-content p {
@@ -189,31 +189,50 @@ button:hover {
   border-radius: 10px;
 }
 
-.dashboard-content {
+/* .dashboard-content {
   padding: 20px;
   padding-left: 600px; /* Adjust width as needed */
+/* margin: 0 auto; */
+/* } */
+.dashboard-content {
+  text-align: center; /* Centers text elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children horizontally */
+  justify-content: center;
+  padding: 20px;
   margin: 0 auto;
+  width: 100%; /* Ensures full-width responsiveness */
 }
-
 .dashboard-title {
-  padding-left: 50px;
   font-size: 28px;
   color: #333;
+  margin-bottom: 20px; /* Adds spacing between title and buttons */
 }
 
 .options {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 20px; /* Adjust spacing between buttons */
+  justify-content: center; /* Center buttons horizontally */
 }
 
 .btn {
   background-color: #28a745;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 30px; /* Increased padding */
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px; /* Slightly larger border radius for a smoother look */
+  font-size: 18px; /* Increased font size */
+  font-weight: bold; /* Make text more prominent */
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.btn:hover {
+  transform: scale(1.05); /* Slight enlargement on hover */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Added a subtle shadow */
+}
+
 .appointment-btn {
   display: flex;
   align-items: center;
@@ -242,4 +261,3 @@ button:hover {
   transform: scale(1.05);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
-

@@ -36,7 +36,7 @@
 // //                alt=""
 // //              />
 // //         </div>
-// //     </div> 
+// //     </div>
 // //       <h1 className="dashboard-title">Lawyer Dashboard</h1>
 // //       <div className="options">
 // //         <Link to="provide-consultation" className="btn">
@@ -46,7 +46,7 @@
 // //           Post Internship
 // //         </Link>
 // //       </div>
-    
+
 // //       {/* Nested Routes */}
 // //       <Routes>
 // //         <Route path="provide-consultation" element={<ProvideConsultationPage />} />
@@ -159,7 +159,7 @@
 // // // //           <div className="flex items-center gap-3">
 // // // //             <img className="w-28" src={assets.group_profiles} alt="Profiles" />
 // // // //             <p className="text-sm">
-// // // //               Simply browse through our extensive list of trusted lawyers, 
+// // // //               Simply browse through our extensive list of trusted lawyers,
 // // // //               schedule your appointment hassle-free.
 // // // //             </p>
 // // // //           </div>
@@ -189,7 +189,6 @@
 
 // // // // export default Dashboard;
 
-
 // // // // import React from "react";
 // // // // import { Routes, Route, Link } from "react-router-dom";
 // // // // import ProvideConsultationPage from "../pages/ProvideConsultationPage.jsx";
@@ -206,7 +205,7 @@
 // // // //         {/* <div className="flex items-center gap-3">
 // // // //           {/* <img src={assets.user_avatar} alt="User" className="w-10 h-10 rounded-full border" /> */}
 // // // //           {/* <span className="hidden md:block text-gray-700 font-medium">Profile</span> */}
-// // // //         {/* </div> */} 
+// // // //         {/* </div> */}
 // // // //       </nav>
 
 // // // //       {/* ---- Hero Section ---- */}
@@ -248,7 +247,6 @@
 
 // // // // export default Dashboard;
 
-
 // import React from "react";
 // import { Routes, Route, Link } from "react-router-dom";
 // import ProvideConsultationPage from "../pages/ProvideConsultationPage.jsx";
@@ -258,7 +256,7 @@
 
 // const Dashboard = () => {
 //   return (
-    
+
 //     <div className="dashboard">
 //       <br />
 //       <hr />
@@ -304,7 +302,6 @@
 
 // export default Dashboard;
 
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
@@ -320,7 +317,8 @@ const Dashboard = () => {
         <div className="hero-content">
           <h2>Offer Your Expertise, Empower Clients</h2>
           <p>
-            Connect with clients seeking your legal guidance and make a difference today.
+            Connect with clients seeking your legal guidance and make a
+            difference today.
           </p>
           <a href="#" className="appointment-btn">
             Book appointment <img src={assets.arrow_icon} alt="Arrow" />
@@ -330,7 +328,8 @@ const Dashboard = () => {
           <img src={assets.header_img} alt="Lawyers" />
         </div>
       </div>
-
+      <br />
+      <br />
       <div className="dashboard-content">
         <h1 className="dashboard-title">Lawyer Dashboard</h1>
         <div className="options">
@@ -341,6 +340,9 @@ const Dashboard = () => {
             Post Internship
           </Link>
         </div>
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   );

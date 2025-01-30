@@ -46,7 +46,7 @@ const LoginSignup = () => {
         return;
       }
       alert("Login successful!");
-      navigate("/dashboard"); // Redirect to dashboard
+      navigate("/lawyer.html"); // Redirect to dashboard
     }
   };
 

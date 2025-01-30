@@ -57,66 +57,66 @@
 // // export default Header;
 
 
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import "./Header.css";
-import courtifyLogo from "../assets/courtifylogo.png";
+// import React from "react";
+// import { useNavigate } from "react-router-dom";
+// import "./Header.css";
+// import courtifyLogo from "../assets/courtifylogo.png";
 
-const Header = () => {
-  const navigate = useNavigate();
+// const Header = () => {
+//   const navigate = useNavigate();
 
-  return (
-    <header className="header flex items-center justify-between py-4 px-8 bg-gradient-to-r from-blue-500 to-purple-600 shadow-md text-white">
-      {/* Logo */}
-      <div
-        className="logo text-2xl font-extrabold cursor-pointer hover:text-gray-200 transition-all duration-300"
-        onClick={() => navigate("/")}
-      >
-       <img className="img" src={courtifyLogo} alt="Courtify Logo" />
-        {/* Courtify */}
-      </div>
+//   return (
+//     <header className="header flex items-center justify-between py-4 px-8 bg-gradient-to-r from-blue-500 to-purple-600 shadow-md text-white">
+//       {/* Logo */}
+//       <div
+//         className="logo text-2xl font-extrabold cursor-pointer hover:text-gray-200 transition-all duration-300"
+//         onClick={() => navigate("/")}
+//       >
+//        <img className="img" src={courtifyLogo} alt="Courtify Logo" />
+//         {/* Courtify */}
+//       </div>
 
-      {/* Navigation Links */}
-      <nav className="nav-links flex gap-8 items-center">
-        <a
-          href="/"
-          className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
-        >
-          Home
-        </a>
-        <a
-          href="/about"
-          className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
-        >
-          About Us
-        </a>
-        <a
-          href="/contact"
-          className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
-        >
-          Contact
-        </a>
+//       {/* Navigation Links */}
+//       <nav className="nav-links flex gap-8 items-center">
+//         <a
+//           href="/"
+//           className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
+//         >
+//           Home
+//         </a>
+//         <a
+//           href="/about"
+//           className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
+//         >
+//           About Us
+//         </a>
+//         <a
+//           href="/contact"
+//           className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
+//         >
+//           Contact
+//         </a>
 
-        {/* Profile Image */}
-        <div
-          className="flex items-center gap-2 cursor-pointer"
-          onClick={() => navigate("/profile")}
-        >
-          <img
-            src="https://via.placeholder.com/40" // Replace with the lawyer's profile image URL
-            alt="Lawyer Profile"
-            className="w-10 h-10 rounded-full border-2 border-white hover:scale-105 transition-transform duration-300"
-          />
-          <span className="text-lg font-medium hover:text-gray-200 transition-all duration-300">
-            Profile
-          </span>
-        </div>
-      </nav>
-    </header>
-  );
-};
+//         {/* Profile Image */}
+//         <div
+//           className="flex items-center gap-2 cursor-pointer"
+//           onClick={() => navigate("/profile")}
+//         >
+//           <img
+//             src="https://via.placeholder.com/40" // Replace with the lawyer's profile image URL
+//             alt="Lawyer Profile"
+//             className="w-10 h-10 rounded-full border-2 border-white hover:scale-105 transition-transform duration-300"
+//           />
+//           <span className="text-lg font-medium hover:text-gray-200 transition-all duration-300">
+//             Profile
+//           </span>
+//         </div>
+//       </nav>
+//     </header>
+//   );
+// };
 
-export default Header;
+// export default Header;
 
 
 // import React from "react";
@@ -185,3 +185,107 @@ export default Header;
 // };
 
 // export default Header;
+
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Header.css";
+import courtifyLogo from "../assets/courtifylogo.png";
+
+const Header = () => {
+  const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("userEmail");
+    navigate("/login");
+  };
+
+  return (
+    <header className="header flex items-center justify-between py-4 px-8 bg-gradient-to-r from-blue-500 to-purple-600 shadow-md text-white">
+      {/* Logo */}
+      <div
+        className="logo text-2xl font-extrabold cursor-pointer hover:text-gray-200 transition-all duration-300"
+        onClick={() => navigate("/")}
+      >
+        <img className="img" src={courtifyLogo} alt="Courtify Logo" />
+      </div>
+
+      {/* Navigation Links */}
+      <nav className="nav-links flex gap-8 items-center">
+        <a
+          href="/"
+          className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
+        >
+          Home
+        </a>
+        <a
+          href="/about"
+          className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
+        >
+          About Us
+        </a>
+        <a
+          href="/contact"
+          className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
+        >
+          Contact
+        </a>
+
+        {/* Dashboard Links */}
+        {isAuthenticated && (
+          <>
+            <a
+              href="/provide-consultation"
+              className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
+            >
+              Provide Consultations
+            </a>
+            <a
+              href="/post-internship"
+              className="text-lg font-medium hover:underline hover:underline-offset-4 transition-all duration-300"
+            >
+              Post Internship
+            </a>
+          </>
+        )}
+
+        {/* Authentication Links */}
+        {isAuthenticated ? (
+          <button
+            className="logout-btn text-lg font-medium bg-red-500 px-4 py-2 rounded-lg hover:bg-red-600 transition-all duration-300"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        ) : (
+          <button
+            className="login-btn text-lg font-medium bg-green-500 px-4 py-2 rounded-lg hover:bg-green-600 transition-all duration-300"
+            onClick={() => navigate("/login")}
+          >
+            Create Account
+          </button>
+        )}
+
+        {/* Profile Image (Shown only if logged in) */}
+        {isAuthenticated && (
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => navigate("/profile")}
+          >
+            <img
+              src="https://via.placeholder.com/40" // Replace with the lawyer's profile image URL
+              alt="Lawyer Profile"
+              className="w-10 h-10 rounded-full border-2 border-white hover:scale-105 transition-transform duration-300"
+            />
+            <span className="text-lg font-medium hover:text-gray-200 transition-all duration-300">
+              Profile
+            </span>
+          </div>
+        )}
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
