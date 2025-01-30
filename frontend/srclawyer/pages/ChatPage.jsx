@@ -61,7 +61,7 @@
 
 
 import React, { useState } from "react";
-// import "./ChatPage.css";
+import "./ChatPage.css";
 const ChatPage = ({ consultation, onClose }) => {
   const [messages, setMessages] = useState([
     { sender: "client", text: "Hi, I need help with my case." },
@@ -85,14 +85,26 @@ const ChatPage = ({ consultation, onClose }) => {
       <h1>Chat with {consultation.clientName}</h1>
       <p><strong>Case Details:</strong> {consultation.caseDetails}</p>
 
-      <div className="chat-messages">
+      {/* <div className="chat-messages" style={{ minHeight: `${messages.length * 50}px`, maxHeight: "70vh" }}>
         {messages.map((msg, index) => (
           <div key={index} style={{ textAlign: msg.sender === "lawyer" ? "right" : "left" }}>
             <p>{msg.text}</p>
           </div>
         ))}
-      </div>
-
+      </div> */}
+      <div
+  className="chat-messages"
+  style={{
+    height: `${Math.min(messages.length * 50, window.innerHeight * 0.7)}px`, // Dynamic height
+    overflowY: messages.length > 5 ? "auto" : "hidden", // Scroll only when necessary
+  }}
+>
+  {messages.map((msg, index) => (
+    <div key={index} style={{ textAlign: msg.sender === "lawyer" ? "right" : "left" }}>
+      <p>{msg.text}</p>
+    </div>
+  ))}
+</div>
       <div className="chat-input">
         <input
           type="text"

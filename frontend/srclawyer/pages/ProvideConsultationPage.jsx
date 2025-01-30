@@ -1039,26 +1039,29 @@ const ProvideConsultationPage = () => {
       </div>
 
       {/* Reject Popup */}
-      {showRejectPopup && (
-        <div className="popup">
-          <div className="popup-content">
-            <h3>Rejection Reason</h3>
-            <textarea
-              value={rejectReason}
-              onChange={(e) => setRejectReason(e.target.value)}
-              placeholder="Enter reason for rejection"
-            ></textarea>
-            <div className="popup-buttons">
-              <button className="submit-btn" onClick={handleRejectSubmit}>
-                Submit
-              </button>
-              <button className="cancel-btn" onClick={() => setShowRejectPopup(false)}>
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+    {showRejectPopup && (
+  <div className="popup-overlay">
+    <div className="popup">
+      <h3 className="popup-title">Rejection Reason</h3>
+      <textarea
+        value={rejectReason}
+        onChange={(e) => setRejectReason(e.target.value)}
+        placeholder="Enter reason for rejection"
+        className="popup-textarea"
+      ></textarea>
+      <div className="popup-buttons">
+        <button className="popup-submit" onClick={handleRejectSubmit}>
+          Submit
+        </button>
+        <button className="popup-cancel" onClick={() => setShowRejectPopup(false)}>
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
     </div>
   );
 };

@@ -41,15 +41,27 @@
   }
   
   /* Chat Messages Area */
-  .chat-messages {
+  /* .chat-messages {
     flex: 1;
-    max-height: 60vh;
     overflow-y: auto;
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 8px;
     background-color: white;
     margin-bottom: 20px;
+  } */
+  .chat-messages {
+    overflow-y: auto; /* Enables scrolling when needed */
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+  margin-bottom: 20px;
+  min-height: auto; /* Start with a small height */
+  height: auto; /* Adjust height dynamically */
+  max-height: 70vh; /* Prevents excessive growth */
+  display: flex;
+  flex-direction: column;
   }
   
   .chat-messages .message {
