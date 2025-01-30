@@ -7,12 +7,16 @@ const Header = () => {
     <header className="header">
       <div className="header__logo">
         <img src={logo} alt="Courtify Logo" />
-        <h1>Courtify</h1>
+        {/* <h1>Courtify</h1> */}
       </div>
       <nav className="header__nav">
-        <a href="/" className="header__link">Home</a>
+        <a href="/" className="header__link">
+          Home
+        </a>
         {/* <a href="/dashboard" className="header__link">Dashboard</a> */}
-        <a href="/contact" className="header__link">Contact</a>
+        <a href="/contact" className="header__link">
+          Contact
+        </a>
       </nav>
     </header>
   );
