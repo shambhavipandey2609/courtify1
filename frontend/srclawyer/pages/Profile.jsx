@@ -1,14 +1,15 @@
 import React from "react";
-
+import lawyerPhoto from "../assets/lawyerphoto.jpg"; 
+import "./Profile.css";
 const Profile = () => {
   const lawyerData = {
-    name: "John Doe",
-    email: "johndoe@example.com",
+    name: "Sharwani Pandey",
+    email: "shaewanipandey@example.com",
     specialization: "Criminal Law",
     experience: "10 Years",
-    address: "123 Main Street, City, State",
-    contact: "+1 212-456-7890",
-    profileImage: "https://via.placeholder.com/150", // Placeholder image
+    address: "123A Banaras Road, Uttar Pradesh",
+    contact: "+91 9610482090",
+    profileImage: lawyerPhoto, 
   };
 
   return (

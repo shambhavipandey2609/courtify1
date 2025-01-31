@@ -8,6 +8,7 @@ import ProvideConsultationPage from "./pages/ProvideConsultationPage";
 import PostInternshipPage from "./pages/PostInternshipPage";
 import ChatPage from "../srclawyer/pages/ChatPage";
 import LoginSignup from "./pages/LoginSignup.jsx";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/login" element={<LoginSignup />} />
         <Route path="/provide-consultation" element={<ProvideConsultationPage />} />
         <Route path="/post-internship" element={<PostInternshipPage />} />
+        <Route path="/profile" element={<Profile />} />
         {/* Add more routes as needed */}
       </Routes>
       <Footer />
