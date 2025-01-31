@@ -15,7 +15,7 @@
 //   return (
 //     <div className="mx-4 sm:mx-[10%]">
 //       <Navbar />
-   
+
 //       <Routes>
 //         <Route path="/" element={<Home />} />
 //         <Route path="/lawyers" element={<Lawyers />} />
@@ -33,7 +33,6 @@
 // };
 
 // export default App;
-
 
 import React from "react";
 import Navbar from "./components/Navbar";
@@ -56,8 +55,8 @@ const App = () => {
       {/* <Home /> */}
       <Routes>
         {/* Other Routes: Excludes Home component */}
-        
-        <Route path="/" element={<Home />} />
+
+        <Route path="/client.html" element={<Home />} />
         <Route path="/lawyers" element={<Lawyers />} />
         <Route path="/lawyers/:speciality" element={<Lawyers />} />
         <Route path="/login" element={<Login />} />
