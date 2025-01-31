@@ -87,21 +87,21 @@ const InternshipPage = () => {
       title: "Corporate Law Internship",
       company: "LawCorp",
       duration: "3 months",
-      stipend: "$500/month",
+      stipend: "Rs 15000/month",
     },
     {
       id: 2,
       title: "Criminal Law Internship",
       company: "Justice League",
       duration: "2 months",
-      stipend: "$400/month",
+      stipend: "Rs 20000/month",
     },
     {
       id: 3,
       title: "Family Law Internship",
       company: "FamilyFirst Legal",
       duration: "4 months",
-      stipend: "$600/month",
+      stipend: "Rs 13000/month",
     },
   ];
 

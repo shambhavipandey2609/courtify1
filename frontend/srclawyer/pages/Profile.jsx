@@ -1,33 +1,32 @@
 import React from "react";
-import lawyerPhoto from "../assets/lawyerphoto.jpg"; 
 import "./Profile.css";
+import lawyerPhoto from "../assets/lawyerphoto.jpg";
+
 const Profile = () => {
   const lawyerData = {
     name: "Sharwani Pandey",
-    email: "shaewanipandey@example.com",
+    email: "sharwanipandey@gmail.com",
     specialization: "Criminal Law",
     experience: "10 Years",
     address: "123A Banaras Road, Uttar Pradesh",
     contact: "+91 9610482090",
-    profileImage: lawyerPhoto, 
+    profileImage: lawyerPhoto,
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-md">
-      <div className="flex items-center gap-6">
+    <div className="profile-container">
+      <div className="profile-header">
         <img
           src={lawyerData.profileImage}
           alt="Lawyer Profile"
-          className="w-32 h-32 rounded-full border"
+          className="profile-image"
         />
-        <div>
-          <h1 className="text-2xl font-bold text-gray-800">{lawyerData.name}</h1>
-          <p className="text-gray-600">{lawyerData.specialization}</p>
-        </div>
+        <h1 className="text-xl font-bold">{lawyerData.name}</h1>
+        <p className="text-gray-600">{lawyerData.specialization}</p>
       </div>
 
-      <div className="mt-6">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">Profile Details</h2>
+      <div className="profile-details">
+        <h2 className="text-lg font-semibold">Profile Details</h2>
         <p><strong>Email:</strong> {lawyerData.email}</p>
         <p><strong>Experience:</strong> {lawyerData.experience}</p>
         <p><strong>Address:</strong> {lawyerData.address}</p>

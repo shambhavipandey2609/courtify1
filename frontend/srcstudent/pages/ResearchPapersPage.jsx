@@ -3,9 +3,9 @@ import "../styles/index.css";
 
 const ResearchPapersPage = () => {
   const papers = [
-    { id: 1, title: "Constitutional Law Insights", author: "John Doe" },
-    { id: 2, title: "Corporate Law Trends", author: "Jane Smith" },
-    { id: 3, title: "Criminal Justice Studies", author: "Alice Brown" },
+    { id: 1, title: "Constitutional Law Insights", author: "Ram Sharan" },
+    { id: 2, title: "Corporate Law Trends", author: "Sameer Sharma" },
+    { id: 3, title: "Criminal Justice Studies", author: "Parun Sinha" },
   ];
 
   return (
