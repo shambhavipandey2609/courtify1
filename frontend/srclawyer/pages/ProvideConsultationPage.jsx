@@ -901,12 +901,12 @@ import { useNavigate } from "react-router-dom";
 
 const ProvideConsultationPage = () => {
   const [requests, setRequests] = useState([
-    { id: 1, clientName: "John Doe", caseDetails: "Property dispute", status: "new" },
-    { id: 2, clientName: "Jane Smith", caseDetails: "Contract breach", status: "new" },
+    { id: 1, clientName: "Rajashree Pal", caseDetails: "Property dispute", status: "new" },
+    { id: 2, clientName: "Harsh Singh", caseDetails: "Contract breach", status: "new" },
   ]);
 
   const [scheduledConsultations, setScheduledConsultations] = useState([
-    { id: 3, clientName: "Alice Brown", caseDetails: "Divorce case", status: "scheduled" },
+    { id: 3, clientName: "Suramya Singh", caseDetails: "Divorce case", status: "scheduled" },
   ]);
 
   const [rejectReason, setRejectReason] = useState("");
