@@ -4,7 +4,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"node client-backend/server.js\" \"node lawstudent-backend/server.js\" \"node lawyer-auth-backend/server.js\"",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "testcloudinary": "node config/testcloudinary.js"
   },
