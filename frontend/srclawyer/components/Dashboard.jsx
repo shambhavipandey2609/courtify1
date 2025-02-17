@@ -320,9 +320,9 @@ const Dashboard = () => {
             Connect with clients seeking your legal guidance and make a
             difference today.
           </p>
-          <a href="#" className="appointment-btn">
+          {/* <a href="#" className="appointment-btn">
             Book appointment <img src={assets.arrow_icon} alt="Arrow" />
-          </a>
+          </a> */}
         </div>
         <div className="hero-image">
           <img src={assets.header_img} alt="Lawyers" />

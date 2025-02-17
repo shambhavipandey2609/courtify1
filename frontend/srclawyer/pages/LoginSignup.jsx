@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Auth.css"; // Separate CSS for styling
+import "./Auth.css"; // Ensure this CSS file exists
 
 const LoginSignup = () => {
   const [state, setState] = useState("Sign Up");
@@ -8,20 +8,22 @@ const LoginSignup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [barCouncilId, setBarCouncilId] = useState("");
+  const [areaOfPractice, setAreaOfPractice] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [yearsOfExperience, setYearsOfExperience] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
+  const API_BASE_URL = "http://localhost:4001/api/lawyers"; // Backend URL
 
-  const validateEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
-  const onSubmitHandler = (event) => {
+  // Function to handle API requests for signup & login
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     setError("");
 
-    if (!validateEmail(email)) {
+    if (!email.includes("@")) {
       setError("Invalid email format");
       return;
     }
@@ -34,19 +36,41 @@ const LoginSignup = () => {
       return;
     }
 
+    const userData = { email, password };
+
     if (state === "Sign Up") {
-      // Store user details in localStorage (temporary authentication)
-      localStorage.setItem("lawyerUser", JSON.stringify({ name, email, password }));
-      alert("Signup successful! Please login.");
-      setState("Login");
-    } else {
-      const storedUser = JSON.parse(localStorage.getItem("lawyerUser"));
-      if (!storedUser || storedUser.email !== email || storedUser.password !== password) {
-        setError("Invalid login credentials");
-        return;
+      userData.name = name;
+      userData.barCouncilId = barCouncilId;
+      userData.areaOfPractice = areaOfPractice;
+      userData.phoneNumber = phoneNumber;
+      userData.yearsOfExperience = yearsOfExperience;
+    }
+
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/${state === "Sign Up" ? "signup" : "login"}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userData),
+        }
+      );
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong!");
       }
-      alert("Login successful!");
-      navigate("/lawyer.html"); // Redirect to dashboard
+
+      if (state === "Sign Up") {
+        alert("Signup successful! Please login.");
+        setState("Login"); // Switch to login screen
+      } else {
+        alert("Login successful!");
+        localStorage.setItem("lawyerToken", data.token); // Store JWT token
+        navigate("/lawyer.html"); // Redirect to dashboard
+      }
+    } catch (err) {
+      setError(err.message);
     }
   };
 
@@ -55,17 +79,57 @@ const LoginSignup = () => {
       <div className="auth-box">
         <h2>{state === "Sign Up" ? "Create Account" : "Login"}</h2>
         <p>Please {state === "Sign Up" ? "sign up" : "log in"} to continue</p>
+
         {state === "Sign Up" && (
-          <div className="input-group">
-            <label>Full Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
+          <>
+            <div className="input-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Bar Council ID</label>
+              <input
+                type="text"
+                value={barCouncilId}
+                onChange={(e) => setBarCouncilId(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Area of Practice</label>
+              <input
+                type="text"
+                value={areaOfPractice}
+                onChange={(e) => setAreaOfPractice(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Phone Number</label>
+              <input
+                type="text"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label>Years of Experience</label>
+              <input
+                type="number"
+                value={yearsOfExperience}
+                onChange={(e) => setYearsOfExperience(e.target.value)}
+                required
+              />
+            </div>
+          </>
         )}
+
         <div className="input-group">
           <label>Email</label>
           <input
@@ -75,6 +139,7 @@ const LoginSignup = () => {
             required
           />
         </div>
+
         <div className="input-group">
           <label>Password</label>
           <input
@@ -87,6 +152,7 @@ const LoginSignup = () => {
             {showPassword ? "Hide" : "Show"}
           </button>
         </div>
+
         {state === "Sign Up" && (
           <div className="input-group">
             <label>Confirm Password</label>
@@ -98,13 +164,21 @@ const LoginSignup = () => {
             />
           </div>
         )}
+
         {error && <p className="error">{error}</p>}
+
         <button type="submit" className="submit-btn">
           {state === "Sign Up" ? "Create Account" : "Login"}
         </button>
+
         <p>
-          {state === "Sign Up" ? "Already have an account?" : "Don't have an account?"}{" "}
-          <span onClick={() => setState(state === "Sign Up" ? "Login" : "Sign Up")} className="switch-link">
+          {state === "Sign Up"
+            ? "Already have an account?"
+            : "Don't have an account?"}{" "}
+          <span
+            onClick={() => setState(state === "Sign Up" ? "Login" : "Sign Up")}
+            className="switch-link"
+          >
             {state === "Sign Up" ? "Login here" : "Sign up here"}
           </span>
         </p>
