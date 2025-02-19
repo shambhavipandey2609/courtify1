@@ -95,6 +95,39 @@
 
 // export default Lawyers;
 
+/////////prev code abhi wala
+
+// import React, { useContext } from "react";
+// import { AppContext } from "../context/AppContext";
+
+// const Lawyers = () => {
+//   const { lawyers } = useContext(AppContext);
+
+//   return (
+//     <div className="p-4">
+//       <h2 className="text-2xl font-bold mb-4">Available Lawyers</h2>
+//       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+//         {lawyers.map((lawyer) => (
+//           <div
+//             key={lawyer._id}
+//             className="border p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+//           >
+//             <h3 className="text-xl font-semibold">{lawyer.name}</h3>
+//             <p className="text-gray-600">{lawyer.areaOfPractice}</p>
+//             <p className="text-gray-600">
+//               {lawyer.yearsOfExperience} years of experience
+//             </p>
+//             <p className="text-gray-600">{lawyer.phoneNumber}</p>
+//             <p className="text-gray-600">{lawyer.email}</p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Lawyers;
+
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
@@ -110,6 +143,13 @@ const Lawyers = () => {
             key={lawyer._id}
             className="border p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
+            {lawyer.photo && (
+              <img
+                src={lawyer.photo}
+                alt={`${lawyer.name}'s profile`}
+                className="w-full h-40 object-cover rounded-lg mb-2"
+              />
+            )}
             <h3 className="text-xl font-semibold">{lawyer.name}</h3>
             <p className="text-gray-600">{lawyer.areaOfPractice}</p>
             <p className="text-gray-600">
