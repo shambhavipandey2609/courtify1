@@ -96,4 +96,13 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/list", async (req, res) => {
+  try {
+    const lawyers = await Lawyer.find().select("-password"); // Exclude passwords
+    res.json({ success: true, lawyers });
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 module.exports = router;
