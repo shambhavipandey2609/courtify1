@@ -9,6 +9,7 @@ import PostInternshipPage from "./pages/PostInternshipPage";
 import ChatPage from "../srclawyer/pages/ChatPage";
 import LoginSignup from "./pages/LoginSignup.jsx";
 import Profile from "./pages/Profile";
+import PostCaseStudyPage from "./pages/PostCaseStudyPage";
 
 const App = () => {
   return (
@@ -17,9 +18,13 @@ const App = () => {
       <Routes>
         <Route path="/lawyer.html" element={<Dashboard />} />
         <Route path="/login" element={<LoginSignup />} />
-        <Route path="/provide-consultation" element={<ProvideConsultationPage />} />
+        <Route
+          path="/provide-consultation"
+          element={<ProvideConsultationPage />}
+        />
         <Route path="/post-internship" element={<PostInternshipPage />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/post-case-study" element={<PostCaseStudyPage />} />
         {/* Add more routes as needed */}
       </Routes>
       <Footer />
@@ -28,4 +33,3 @@ const App = () => {
 };
 
 export default App;
-

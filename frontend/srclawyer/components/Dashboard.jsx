@@ -339,6 +339,9 @@ const Dashboard = () => {
           <Link to="/post-internship" className="btn">
             Post Internship
           </Link>
+          <Link to="/post-case-study" className="btn">
+            Post Case Study
+          </Link>
         </div>
         <br />
         <br />

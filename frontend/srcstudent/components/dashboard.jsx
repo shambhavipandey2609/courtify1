@@ -29,7 +29,7 @@
 
 import { Routes, Route, Link } from "react-router-dom";
 import InternshipPage from "../pages/InternshipPage.jsx";
-import ResearchPapersPage from "../pages/ResearchPapersPage.jsx";
+import CaseStudiesPage from "../pages/CaseStudies.jsx";
 import "./dashboard.css";
 import { assets } from "../assets/assets";
 // import TopStudent from "./TopStudent.jsx"
@@ -63,8 +63,8 @@ const Dashboard = () => {
           <Link to="internship" className="btn">
             Internship
           </Link>
-          <Link to="research-papers" className="btn">
-            Reseach Papers
+          <Link to="CaseStudies" className="btn">
+            Case Studies
           </Link>
         </div>
         <br />
