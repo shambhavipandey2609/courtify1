@@ -42,6 +42,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import "./PostCaseStudyPage.css";
 
 const PostCaseStudyPage = () => {
   const [title, setTitle] = useState("");
@@ -72,23 +73,31 @@ const PostCaseStudyPage = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Post Case Study</h2>
+    <div className="container shadow-lg p-4 rounded bg-white">
+      <h2 className="text-center text-primary">Post Case Study</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Case Study Title:</label>
+        <div className="mb-3">
+          <label className="form-label">Case Study Title:</label>
           <input
             type="text"
+            className="form-control"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Upload Case Study:</label>
-          <input type="file" onChange={handleFileChange} required />
+        <div className="mb-3">
+          <label className="form-label">Upload Case Study:</label>
+          <input
+            type="file"
+            className="form-control"
+            onChange={handleFileChange}
+            required
+          />
         </div>
-        <button type="submit">Post</button>
+        <button type="submit" className="btn btn-primary w-100">
+          Post
+        </button>
       </form>
     </div>
   );
