@@ -33,12 +33,12 @@
 
 // export default App;
 
-import React from "react";
+// import React from "react";
 import Header from "./components/Header.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
-import LawStudentDashboard from "./pages/LawStudentDashboard";
+// import LawStudentDashboard from "./pages/LawStudentDashboard";
 import CaseStudiesPage from "./pages/CaseStudies";
 import InternshipPage from "./pages/InternshipPage";
 import LoginSignup from "./pages/LoginSignup.jsx";
