@@ -179,6 +179,26 @@ router.post("/signup", upload.single("photo"), async (req, res) => {
     ) {
       return res.status(400).json({ error: "All fields are required" });
     }
+    // Validate name: Only letters and spaces allowed
+    if (!/^[A-Za-z\s]+$/.test(name)) {
+      return res
+        .status(400)
+        .json({ error: "Name must contain only alphabets and spaces." });
+    }
+
+    // Validate password length
+    if (password.length < 8) {
+      return res
+        .status(400)
+        .json({ error: "Password must be at least 8 characters long." });
+    }
+
+    // Validate phone number (exactly 10 digits)
+    if (!/^\d{10}$/.test(phoneNumber)) {
+      return res
+        .status(400)
+        .json({ error: "Phone number must be exactly 10 digits." });
+    }
 
     const existingLawyer = await Lawyer.findOne({ email });
     if (existingLawyer) {

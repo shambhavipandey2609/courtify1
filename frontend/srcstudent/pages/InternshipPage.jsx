@@ -132,7 +132,7 @@
 
 import React, { useEffect, useState } from "react";
 import "../styles/index.css";
-import Sidebar from "../components/Sidebar";
+// import Sidebar from "../components/Sidebar";
 
 const InternshipPage = () => {
   const [internships, setInternships] = useState([]);
@@ -146,6 +146,7 @@ const InternshipPage = () => {
         setInternships(data);
       })
       .catch((error) => console.error("Error fetching internships:", error));
+    // alert("Failed to fetch internships! Check console for errors.");
   }, []);
 
   // ✅ Function to open Google Form and show confirmation
@@ -161,7 +162,7 @@ const InternshipPage = () => {
 
   return (
     <div className="internship-page">
-      <Sidebar activeMenu="internships" />
+      {/* <Sidebar activeMenu="internships" /> */}
       <div className="content">
         <h1>Internship Opportunities</h1>
 
