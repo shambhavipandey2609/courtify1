@@ -159,10 +159,17 @@ import connectDB from "./config/mongodb.js";
 import connectCloudinary from "./config/cloudinary.js";
 import adminRouter from "./routes/adminRoute.js";
 import User from "./models/userModel.js"; // ✅ Ensure this file exists
+import consultationRoutes from "./routes/consultationRoutes.js";
 import { authenticateUser } from "./middlewares/authMiddleware.js";
 const app = express();
 const port = process.env.PORT || 4000;
 const JWT_SECRET = process.env.JWT_SECRET || "your_secret_key";
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 connectDB();
 connectCloudinary();
@@ -295,5 +302,7 @@ app.post("/api/login", async (req, res) => {
 app.get("/", (req, res) => {
   res.send("API is running fine...");
 });
+// const consultationRoutes = require("./routes/consultationRoutes");
+app.use("/api/consultations", consultationRoutes);
 
 app.listen(port, () => console.log("✅ Server Started on Port", port));

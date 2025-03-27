@@ -1,5 +1,5 @@
 import express from "express";
-import { addLawyer } from "../contollers/adminController.js";
+import { addLawyer } from "../controllers/adminController.js";
 import upload from "../middlewares/multer.js";
 
 const adminRouter = express.Router();

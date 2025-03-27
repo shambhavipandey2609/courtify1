@@ -291,22 +291,48 @@ const ProvideConsultationPage = () => {
     setActiveMenu(menu);
   };
 
+  // const handleAccept = async (id) => {
+  //   try {
+  //     await axios.put(`http://localhost:4001/api/consultations/${id}`, {
+  //       status: "accepted",
+  //     });
+  //     fetchConsultations(); // Refetch updated data
+  //   } catch (error) {
+  //     console.error("Error accepting consultation:", error);
+  //   }
+
+  // };
+  
+  // const handleReject = (id) => {
+  //   setSelectedRejectId(id);
+  //   setShowRejectPopup(true);
+  // };
   const handleAccept = async (id) => {
     try {
+      // 1. Update in lawyer-backend
       await axios.put(`http://localhost:4001/api/consultations/${id}`, {
         status: "accepted",
       });
-      fetchConsultations(); // Refetch updated data
+  
+      // 2. Get the accepted consultation info
+      // const acceptedConsult = consultations.find(c => c._id === id);
+  
+      // // 3. POST to client-backend to update consultation status
+      // await axios.post("http://localhost:4000/api/client/consultation-accepted", {
+      //   bar_council_id: acceptedConsult.bar_council_id,
+      //   date: acceptedConsult.date,
+      //   time: acceptedConsult.time,
+      //   status: "accepted",
+      //   clientName: acceptedConsult.clientName, // for matching, optional
+      // });
+  
+      // 4. Refresh UI
+      fetchConsultations();
     } catch (error) {
       console.error("Error accepting consultation:", error);
     }
   };
-
-  const handleReject = (id) => {
-    setSelectedRejectId(id);
-    setShowRejectPopup(true);
-  };
-
+  
   const handleRejectSubmit = async () => {
     try {
       await axios.put(`http://localhost:4001/api/consultations/${selectedRejectId}`, {
@@ -400,7 +426,7 @@ const ProvideConsultationPage = () => {
               {scheduledConsultations.map((consult) => (
                 <div key={consult._id} className="request-card">
                   <p><strong>Client Name:</strong> {consult.clientName}</p>
-                  <p><strong>Legal Name:</strong> {consult.legalName || "N/A"}</p>
+                  {/* <p><strong>Legal Name:</strong> {consult.legalName || "N/A"}</p> */}
                   <p>Date: {consult.date}</p>
                   <p>Time: {consult.time}</p>
                   <button className="chat-btn" onClick={() => handleStartChat(consult)}>

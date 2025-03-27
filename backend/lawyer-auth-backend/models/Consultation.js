@@ -26,6 +26,7 @@
 const mongoose = require("mongoose");
 
 const consultationSchema = new mongoose.Schema({
+  //clientId: { type: mongoose.Schema.Types.ObjectId, required: true },
   clientName: { 
     type: String, 
     required: true 
