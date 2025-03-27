@@ -33,7 +33,7 @@ const consultationSchema = new mongoose.Schema({
   bar_council_id: { 
     type: String, 
     required: true, 
-    match: /^[A-Za-z]{3}\d{3}$/ // Format: 3 letters + 3 numbers (e.g., "ABC123")
+   // match: /^[A-Za-z]{3}\d{3}$/ // Format: 3 letters + 3 numbers (e.g., "ABC123")
   },
   date: { 
     type: String, 

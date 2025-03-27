@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
-
 // Create Context
+
 export const AppContext = createContext();
 
 const AppContextProvider = (props) => {
@@ -10,9 +10,11 @@ const AppContextProvider = (props) => {
   const backendUrl = "http://localhost:4001"; // Replace with your backend URL
 
   const [lawyers, setLawyers] = useState([]); // Holds the list of lawyers
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [userData, setUserData] = useState(null); // Holds user profile data
-
+  // const [token, setToken] = useState(localStorage.getItem("token") || "");
+  // const [userData, setUserData] = useState(null); // Holds user profile data
+  const [token, setToken] = useState(""); // Don't load from localStorage
+  const [userData, setUserData] = useState(null);
+  
   // Fetch lawyers from API
   const getLawyersData = async () => {
     try {
@@ -34,7 +36,7 @@ const AppContextProvider = (props) => {
       const { data } = await axios.get(`${backendUrl}/api/lawyers/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
+  
       if (data.success) {
         setUserData(data.userData);
       } else {
@@ -45,12 +47,12 @@ const AppContextProvider = (props) => {
       toast.error("Failed to load user profile. Please try again.");
     }
   };
+  
 
   // Fetch lawyers when the component mounts
   useEffect(() => {
     getLawyersData();
   }, []);
-
   // Fetch user profile when token changes
   useEffect(() => {
     if (token) {

@@ -63,16 +63,38 @@ const router = express.Router();
 const Consultation = require("../models/Consultation");
 
 // Book a consultation (No lawyerId)
+// router.post("/", async (req, res) => {
+//   try {
+//     const { clientName, date, time } = req.body; // No lawyerId needed
+//     const newConsultation = new Consultation({ clientName, date, time });
+//     await newConsultation.save();
+//     res.status(201).json({ success: true, data: newConsultation });
+//   } catch (error) {
+//     res.status(500).json({ success: false, error: error.message });
+//   }
+// });
 router.post("/", async (req, res) => {
   try {
-    const { clientName, date, time } = req.body; // No lawyerId needed
-    const newConsultation = new Consultation({ clientName, date, time });
+    const { clientName, bar_council_id, date, time } = req.body;
+    
+    if (!clientName || !bar_council_id || !date || !time) {
+      return res.status(400).json({ success: false, error: "All fields are required" });
+    }
+
+    const newConsultation = new Consultation({
+      clientName,
+      bar_council_id,
+      date,
+      time,
+    });
+
     await newConsultation.save();
     res.status(201).json({ success: true, data: newConsultation });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 });
+
 
 // Get all consultations (No lawyer filtering)
 router.get("/", async (req, res) => {
