@@ -21,6 +21,7 @@ const Appointment = () => {
   const [lawyerSlots, setLawyerSlots] = useState([]);
   const [slotIndex, setSlotIndex] = useState(0);
   const [slotTime, setSlotTime] = useState("");
+  const [legalName, setLegalName] = useState("");
 
   const fetchLawyerInfo = async () => {
     const lawyerInfo = lawyers.find((lawyer) => lawyer._id === lawyerId);
@@ -93,11 +94,12 @@ const Appointment = () => {
 //           time: slotTime,
 //         }),
 body: JSON.stringify({
-  clientName: userData?.name || "Unknown Client",
+  clientName:  legalName.trim(),
   bar_council_id: lawyerInfo?.bar_council_id || lawyerInfo?.barCouncilId || "UNKNOWN",
   // bar_council_id: lawyerInfo?.bar_council_id || "ABC123", // fallback for dev
   date: slotDate,
   time: slotTime,
+  legalName: legalName.trim(),
 }),
       });
   
@@ -209,6 +211,18 @@ body: JSON.stringify({
               </p>
             ))}
         </div>
+        <div className="mt-6">
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    Enter your Legal Name
+  </label>
+  <input
+    type="text"
+    value={legalName}
+    onChange={(e) => setLegalName(e.target.value)}
+    placeholder="Your legal name"
+    className="w-full max-w-md border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+  />
+</div>
 
         <button
           onClick={bookAppointment}

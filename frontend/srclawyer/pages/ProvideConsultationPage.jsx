@@ -334,7 +334,11 @@ const ProvideConsultationPage = () => {
             <div className="scheduled">
               {scheduledConsultations.map((consult) => (
                 <div key={consult._id} className="request-card">
-                  <h3>{consult.clientName}</h3>
+                  {/* <h3>{consult.clientName}</h3> */}
+                  <p className="text-sm text-gray-600">
+                       <strong>Legal Name:</strong> {consult.legalName || "N/A"}
+                  </p>
+
                   <p>Date: {consult.date}</p>
                   <p>Time: {consult.time}</p>
                   <button className="chat-btn" onClick={() => handleStartChat(consult)}>

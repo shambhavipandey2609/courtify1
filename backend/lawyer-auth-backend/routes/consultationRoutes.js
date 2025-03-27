@@ -75,9 +75,9 @@ const Consultation = require("../models/Consultation");
 // });
 router.post("/", async (req, res) => {
   try {
-    const { clientName, bar_council_id, date, time } = req.body;
+    const { clientName, bar_council_id, date, time, legalName } = req.body;
     
-    if (!clientName || !bar_council_id || !date || !time) {
+    if (!clientName || !bar_council_id || !date || !time || !legalName) {
       return res.status(400).json({ success: false, error: "All fields are required" });
     }
 
@@ -86,6 +86,9 @@ router.post("/", async (req, res) => {
       bar_council_id,
       date,
       time,
+      legalName, // ✅ Save this
+  status: "pending",
+  isPaid: false
     });
 
     await newConsultation.save();
