@@ -80,11 +80,12 @@
 
 // export default PostInternshipPage;
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import "./PostInternshipPage.css"; // Import CSS for additional styles
 
 const PostInternshipPage = () => {
+  const [activeMenu, setActiveMenu] = useState("internships");
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -115,7 +116,8 @@ const PostInternshipPage = () => {
 
   return (
     <div className="flex-container">
-      <Sidebar activeMenu="internships" />
+      {/* <Sidebar activeMenu="internships" /> */}
+      <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
       <div className="content-container">
         <h1 className="page-heading">Post an Internship</h1>
         <form onSubmit={handleSubmit} className="form">

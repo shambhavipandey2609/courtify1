@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./ProvideConsultationPage.css";
+import Sidebar from "../components/Sidebar";
 const ProvideConsultationPage = () => {
   const [consultations, setConsultations] = useState([]);
   const [activeMenu, setActiveMenu] = useState("consultations");
@@ -25,9 +26,9 @@ const ProvideConsultationPage = () => {
     fetchConsultations();
   }, []);
 
-  const handleNavigation = (menu) => {
-    setActiveMenu(menu);
-  };
+  // const handleNavigation = (menu) => {
+  //   setActiveMenu(menu);
+  // };
 
   // const handleAccept = async (id) => {
   //   try {
@@ -102,7 +103,8 @@ const ProvideConsultationPage = () => {
 
   return (
     <div className="consultation-page">
-      <div className="sidebar">
+      <Sidebar activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+      {/* <div className="sidebar">
         <h2>Lawyer Options</h2>
         <ul>
           <li
@@ -130,7 +132,7 @@ const ProvideConsultationPage = () => {
             Profile
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="content">
         <h1>Consultation Management</h1>

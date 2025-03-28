@@ -285,7 +285,7 @@
 
 // export default MyProfile;
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { assets } from "../assets/assets";
 
