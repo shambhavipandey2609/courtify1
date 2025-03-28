@@ -24,7 +24,7 @@ const App = () => {
           element={<CaseStudiesPage />}
         />
 
-        <Route path="/login.html" element={<LoginSignup />} />
+        <Route path="/lawstudent.html/LoginSignup" element={<LoginSignup />} />
       </Routes>
       <Footer />
     </Router>
