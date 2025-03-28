@@ -1,5 +1,3 @@
-
-
 // const mongoose = require("mongoose");
 
 // const LawyerSchema = new mongoose.Schema(
@@ -20,9 +18,9 @@
 //       required: true,
 //       minlength: [8, "Password must be at least 8 characters long."],
 //     },
-//     barCouncilId: { 
-//       type: String, 
-//       required: true, 
+//     barCouncilId: {
+//       type: String,
+//       required: true,
 //       unique: true,
 //       validate: {
 //         validator: function (v) {
@@ -50,8 +48,8 @@
 
 // module.exports = mongoose.model("Lawyer", LawyerSchema);
 
-
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const LawyerSchema = new mongoose.Schema(
   {
@@ -65,9 +63,9 @@ const LawyerSchema = new mongoose.Schema(
         message: "Name must contain only alphabets and spaces.",
       },
     },
-    email: { 
-      type: String, 
-      required: true, 
+    email: {
+      type: String,
+      required: true,
       unique: true,
       validate: {
         validator: function (v) {
@@ -81,15 +79,16 @@ const LawyerSchema = new mongoose.Schema(
       required: true,
       minlength: [8, "Password must be at least 8 characters long."],
     },
-    barCouncilId: { 
-      type: String, 
-      required: true, 
+    barCouncilId: {
+      type: String,
+      required: true,
       unique: true,
       validate: {
         validator: function (v) {
           return /^[A-Za-z0-9]{6}$/.test(v); // 6 alphanumeric chars
         },
-        message: "barCouncilId must be exactly 6 alphanumeric characters (e.g., A1B2C3).",
+        message:
+          "barCouncilId must be exactly 6 alphanumeric characters (e.g., A1B2C3).",
       },
     },
     areaOfPractice: { type: String, required: true },
@@ -103,11 +102,11 @@ const LawyerSchema = new mongoose.Schema(
         message: "Phone number must be exactly 10 digits.",
       },
     },
-    yearsOfExperience: { 
-      type: Number, 
+    yearsOfExperience: {
+      type: Number,
       required: true,
       min: [0, "Experience cannot be negative."],
-      max: [60, "Experience exceeds reasonable limit."] 
+      max: [60, "Experience exceeds reasonable limit."],
     },
     photo: { type: String },
   },
@@ -117,4 +116,7 @@ const LawyerSchema = new mongoose.Schema(
 // Optional: Add index for faster queries
 LawyerSchema.index({ barCouncilId: 1 }, { unique: true });
 
-module.exports = mongoose.model("Lawyer", LawyerSchema);
+// module.exports = mongoose.model("Lawyer", LawyerSchema);
+
+const Lawyer = mongoose.model("Lawyer", LawyerSchema);
+export default Lawyer;

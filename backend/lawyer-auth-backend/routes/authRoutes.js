@@ -107,15 +107,28 @@
 
 // module.exports = router;
 
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const Lawyer = require("../models/Lawyer");
-const authMiddleware = require("../middlewares/authMiddleware");
-const multer = require("multer");
-const { CloudinaryStorage } = require("multer-storage-cloudinary");
-const cloudinary = require("cloudinary").v2;
-require("dotenv").config();
+// const express = require("express");
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
+// const Lawyer = require("../models/Lawyer");
+// const authMiddleware = require("../middlewares/authMiddleware");
+// const multer = require("multer");
+// const { CloudinaryStorage } = require("multer-storage-cloudinary");
+// const cloudinary = require("cloudinary").v2;
+// require("dotenv").config();
+
+// const router = express.Router();
+import express from "express";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import Lawyer from "../models/Lawyer.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
+import multer from "multer";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+import { v2 as cloudinary } from "cloudinary";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const router = express.Router();
 
@@ -261,4 +274,5 @@ router.get("/list", async (req, res) => {
   }
 });
 
-module.exports = router;
+// module.exports = router;
+export default router;

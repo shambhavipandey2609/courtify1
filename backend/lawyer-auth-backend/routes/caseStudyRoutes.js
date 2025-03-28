@@ -1,7 +1,13 @@
-const express = require("express");
-const multer = require("multer");
-const CaseStudy = require("../models/CaseStudy");
-const path = require("path");
+// const express = require("express");
+// const multer = require("multer");
+// const CaseStudy = require("../models/CaseStudy");
+// const path = require("path");
+
+// const router = express.Router();
+import express from "express";
+import multer from "multer";
+import CaseStudy from "../models/CaseStudy.js"; // Ensure file extension is included
+import path from "path";
 
 const router = express.Router();
 
@@ -24,12 +30,10 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     const newCaseStudy = new CaseStudy({ title, fileUrl });
     await newCaseStudy.save();
 
-    res
-      .status(201)
-      .json({
-        message: "Case study uploaded successfully!",
-        caseStudy: newCaseStudy,
-      });
+    res.status(201).json({
+      message: "Case study uploaded successfully!",
+      caseStudy: newCaseStudy,
+    });
   } catch (error) {
     res.status(500).json({ error: "Failed to upload case study" });
   }
@@ -45,4 +49,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

@@ -206,14 +206,16 @@
 
 // export default Lawyers;
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const Lawyers = () => {
   const { lawyers } = useContext(AppContext);
   const navigate = useNavigate();
-  const BASE_URL = "http://localhost:4001"; // Backend URL
+  // const BASE_URL = "http://localhost:4001"; // Backend URL
+  // const CLOUDINARY_BASE_URL =
+  // "https://res.cloudinary.com/dxvxqtpew/image/upload/";
 
   return (
     <div className="p-4">
@@ -226,16 +228,55 @@ const Lawyers = () => {
             onClick={() => {
               navigate(`/appointment/${lawyer._id}`);
               window.scrollTo(0, 0);
-            }}  // <-- This ensures the click redirects
+            }} // <-- This ensures the click redirects
           >
-            {lawyer.photo && (
-              <img
-                src={`${BASE_URL}${lawyer.photo}`} // Fix template literals
-                alt={`${lawyer.name}'s profile`}
-                className="w-full h-40 object-cover rounded-lg mb-2"
-                onError={(e) => (e.target.src = "/default-profile.png")} // Fallback image
-              />
-            )}
+            {/* <img
+              src={`https://res.cloudinary.com/dlqsemxcz/image/upload/${lawyer.photo}`}
+              alt={`${lawyer.name}'s profile`}
+              className="w-full h-40 object-cover rounded-lg mb-2"
+              onError={(e) => (e.target.src = "/default-profile.png")}
+            /> */}
+            {/* <img
+              src={
+                lawyer.photo
+                  ? `${CLOUDINARY_BASE_URL}${lawyer.photo}`
+                  : "/default-profile.png"
+              }
+              alt={`${lawyer.name}'s profile`}
+              className="w-full h-40 object-cover rounded-lg mb-2"
+              onError={(e) => (e.target.src = "/default-profile.png")}
+            /> */}
+            {/* <img
+              src={
+                lawyer.photo.startsWith("http")
+                  ? lawyer.photo // Use the full URL directly
+                  : `https://res.cloudinary.com/dxvxqtpew/image/upload/${lawyer.photo}`
+              }
+              alt={`${lawyer.name}'s profile`}
+              className="w-full h-40 object-cover rounded-lg mb-2"
+              onError={(e) => {
+                if (e.target.src !== "/default-profile.png") {
+                  e.target.src = "/default-profile.png"; // Fallback image
+                }
+              }} */}
+            {/* /> */}
+            <img
+              src={
+                lawyer.photo
+                  ? lawyer.photo.startsWith("http") // If it's a full URL, use it directly
+                    ? lawyer.photo
+                    : `https://res.cloudinary.com/dxvxqtpew/image/upload/${lawyer.photo}`
+                  : "/default-profile.png" // If no photo exists, use default
+              }
+              alt={`${lawyer.name || "Lawyer"}'s profile`}
+              className="w-full h-40 object-cover rounded-lg mb-2"
+              onError={(e) => {
+                if (e.target.src !== "/default-profile.png") {
+                  e.target.src = "/default-profile.png"; // Prevent infinite loop on error
+                }
+              }}
+            />
+
             <h3 className="text-xl font-semibold">{lawyer.name}</h3>
             <p className="text-gray-600">{lawyer.areaOfPractice}</p>
             <p className="text-gray-600">

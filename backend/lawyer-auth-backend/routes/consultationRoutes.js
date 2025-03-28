@@ -7,9 +7,9 @@
 //   try {
 //     const { clientName, date, time, lawyerId } = req.body;
 
-//     const newConsultation = new Consultation({ 
-//       clientName, 
-//       date, 
+//     const newConsultation = new Consultation({
+//       clientName,
+//       date,
 //       time,
 //       lawyerId
 //     });
@@ -57,11 +57,13 @@
 
 // module.exports = router;
 
+// const express = require("express");
+// const router = express.Router();
+// const Consultation = require("../models/Consultation");
+import express from "express";
+import Consultation from "../models/Consultation.js";
 
-const express = require("express");
 const router = express.Router();
-const Consultation = require("../models/Consultation");
-
 // Book a consultation (No lawyerId)
 // router.post("/", async (req, res) => {
 //   try {
@@ -76,9 +78,11 @@ const Consultation = require("../models/Consultation");
 router.post("/", async (req, res) => {
   try {
     const { clientName, bar_council_id, date, time, legalName } = req.body;
-    
+
     if (!clientName || !bar_council_id || !date || !time || !legalName) {
-      return res.status(400).json({ success: false, error: "All fields are required" });
+      return res
+        .status(400)
+        .json({ success: false, error: "All fields are required" });
     }
 
     const newConsultation = new Consultation({
@@ -87,8 +91,8 @@ router.post("/", async (req, res) => {
       date,
       time,
       legalName, // ✅ Save this
-  status: "pending",
-  isPaid: false
+      status: "pending",
+      isPaid: false,
     });
 
     await newConsultation.save();
@@ -97,7 +101,6 @@ router.post("/", async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 });
-
 
 // Get all consultations (No lawyer filtering)
 router.get("/", async (req, res) => {
@@ -125,4 +128,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-module.exports = router;
+// module.exports = router;
+
+export default router;

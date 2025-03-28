@@ -1,21 +1,49 @@
+// require("dotenv").config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// const path = require("path");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import path from "path";
+import dotenv from "dotenv";
 
-require("dotenv").config();
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const path = require("path");
-
-const authRoutes = require("./routes/authRoutes"); // Import authentication routes
-const caseStudyRoutes = require("./routes/caseStudyRoutes"); // Import case study routes
-const consultationRoutes = require("./routes/consultationRoutes");
-
+dotenv.config();
 const app = express();
+app.use(cors());
+app.use(express.json());
+// const authRoutes = require("./routes/authRoutes"); // Import authentication routes
+// const caseStudyRoutes = require("./routes/caseStudyRoutes"); // Import case study routes
+// const consultationRoutes = require("./routes/consultationRoutes");
+// import connectCloudinary from "./config/cloudinary.js";
+import connectCloudinary from "./config/cloudinary.js";
+import authRoutes from "./routes/authRoutes.js";
+import caseStudyRoutes from "./routes/caseStudyRoutes.js";
+import consultationRoutes from "./routes/consultationRoutes.js";
+
+connectCloudinary();
+
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json()); // Middleware to parse JSON
 app.use("/api/consultations", consultationRoutes);
 
-// ✅ Serve Static Files (for profile pictures & case studies)
+// // ✅ Serve Static Files (for profile pictures & case studies)
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use(
+//   "/uploads/case-studies",
+//   express.static(path.join(__dirname, "uploads/case-studies"))
+// );
+// import path from "path";
+import { fileURLToPath } from "url";
+// import express from "express";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(
   "/uploads/case-studies",
